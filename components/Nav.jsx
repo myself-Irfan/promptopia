@@ -16,7 +16,6 @@ const Nav = () => {
             const response = await getProviders();
             setProviders(response);
         })(); 
-        // setProviders();
     }, []);
 
 
@@ -45,7 +44,7 @@ const Nav = () => {
                     </button>
                     <Link href="/profile">
                         <Image
-                            src="/assets/images/logo.svg" 
+                            src={session?.user.image}
                             width={37}
                             height={37}
                             className="rounded-full"
