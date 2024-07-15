@@ -11,6 +11,7 @@ const MyProfile = () => {
     const { data: session } = useSession();
     const [posts, setPosts] = useState([]);
 
+
     useEffect(() => {
         const fetchPosts = async () => {
             if (!session.user?.id) return;
@@ -24,9 +25,11 @@ const MyProfile = () => {
         if (session?.user.id) fetchPosts();
     }, [session?.user.id]);
     
+
     const handleEdit = (post) => {
         router.push(`/update-prompt?id=${post._id}`)
     }
+
 
     const handleDelete = async (post) => {
         const hasConfirmed = confirm(
@@ -47,6 +50,7 @@ const MyProfile = () => {
         }
     };
 
+    
     return (
         <Profile 
             name={session?.user.name}
